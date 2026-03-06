@@ -42,7 +42,7 @@
 
         .section-title { margin: 60px 0 30px; font-size: 1.8rem; border-left: 4px solid var(--accent-color); padding-left: 15px; }
 
-        /* NOVO LAYOUT: APRESENTAÇÃO + CHAT IA */
+        /* INTERACTION GRID: BIO + CHAT IA */
         .interaction-grid { 
             display: flex; 
             gap: 30px; 
@@ -84,7 +84,12 @@
         }
 
         .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .footer { text-align: center; padding: 100px 0; }
+        
+        /* FOOTER & CTA */
+        .footer { text-align: center; padding: 100px 0; border-top: 1px solid var(--border); }
+        .cta-text { margin-bottom: 30px; }
+        .cta-text p { font-size: 1.2rem; color: var(--text-main); margin: 5px 0; }
+        .social-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
 
         @media (max-width: 850px) {
             .interaction-grid { flex-direction: column; }
@@ -169,6 +174,10 @@
     </section>
 
     <footer class="footer">
+        <div class="cta-text">
+            <p><strong>Ideias ganham força quando encontram as pessoas certas para executá-las.</strong></p>
+            <p>Se fizer sentido para você, vamos conversar!</p>
+        </div>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/josydomingues/" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <a href="https://wa.me/5521973840942" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
