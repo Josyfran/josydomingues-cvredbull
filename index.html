@@ -26,7 +26,7 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        /* 1. HERO SECTION */
+        /* HERO SECTION */
         .hero { text-align: center; padding: 60px 0; border-bottom: 1px solid var(--border); }
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; letter-spacing: -1px; }
         .hero span { color: var(--accent-color); }
@@ -40,9 +40,41 @@
         .btn-primary { background: var(--accent-color); border: none; font-weight: bold; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(243, 11, 50, 0.2); }
 
-        /* 2. DASHBOARD SECTION */
         .section-title { margin: 60px 0 30px; font-size: 1.8rem; border-left: 4px solid var(--accent-color); padding-left: 15px; }
+
+        /* NOVO LAYOUT: APRESENTAÇÃO + CHAT IA */
+        .interaction-grid { 
+            display: flex; 
+            gap: 30px; 
+            margin: 40px 0; 
+            align-items: flex-start;
+        }
         
+        .bio-text { 
+            flex: 1; 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 16px; 
+            border: 1px solid var(--border);
+        }
+        .bio-text h2 { color: var(--accent-color); margin-top: 0; font-size: 1.5rem; }
+        .bio-text p { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; }
+
+        .chat-sidebar { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px;
+        }
+        .chat-iframe-wrapper { 
+            border-radius: 16px; 
+            overflow: hidden; 
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #000;
+        }
+
+        /* DASHBOARD SECTION */
         .dashboard-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; margin-bottom: 40px; }
         .card { background: var(--card-bg); border-radius: 16px; padding: 25px; border: 1px solid var(--border); }
         
@@ -51,23 +83,11 @@
             margin-top: 20px; border-left: 4px solid var(--accent-color);
         }
 
-        /* 3. CHAT EMBED SECTION */
-        .chat-container { margin: 40px 0; }
-        .chat-header { text-align: center; margin-bottom: 20px; }
-        .chat-iframe-wrapper { 
-            border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        /* 4. PROJETOS */
         .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .project-card h3 { color: var(--accent-color); margin-top: 0; }
-        
-        /* 5. FOOTER */
         .footer { text-align: center; padding: 100px 0; }
-        .social-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
+            .interaction-grid { flex-direction: column; }
             .dashboard-grid, .projects-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.2rem; }
         }
@@ -79,30 +99,37 @@
     <header class="hero">
         <h1>Josy Domingues <span>Lab</span></h1>
         <h3>Event Strategy Lab</h3>
-        <p>Uma experiência interativa para explorar como estratégia, cultura e dados podem transformar eventos em plataformas de impacto duradouro para marcas globais.</p>
+        <p>Transformando estratégia, cultura e dados em plataformas de impacto.</p>
         
         <div class="nav-buttons">
-            <a href="#ia-chat" class="btn btn-primary">Interagir com a IA</a>
+            <a href="#ia-training" class="btn btn-primary">Interagir com a IA</a>
             <a href="#dashboards" class="btn">Explorar Dashboards</a>
-            <a href="#projetos" class="btn">Projetos</a>
         </div>
     </header>
 
-    <section id="ia-chat" class="chat-container">
-        <div class="chat-header">
-            <h2 class="section-title" style="display: inline-block;">IA Training Center</h2>
-            <p style="color: var(--accent-color); font-weight: bold; margin-top: 10px;">
-                Este é o seu dashboard de fit com a vaga. O que você gostaria de saber sobre a Josy?
-            </p>
+    <section id="ia-training" class="interaction-grid">
+        <div class="bio-text">
+            <h2>Quem é Josy?</h2>
+            <p>Sou Josy Domingues, estrategista de projetos, inovação e experiências de marca. Meu trabalho é transformar ideias e iniciativas complexas em plataformas organizadas, integrando estratégia, conteúdo, comunidade e operação para gerar impacto real.</p>
+            <p>Atuo especialmente em contextos onde múltiplas áreas e parceiros precisam caminhar juntos. Estruturo processos, conecto equipes e crio sistemas que transformam eventos e projetos em ativos estratégicos de marca, capazes de gerar experiência, mídia e relevância cultural.</p>
+            <p>Vejo na Red Bull uma oportunidade de aplicar essa visão nas plataformas de surf e skate — fortalecendo a conexão entre esporte, comunidade e conteúdo para ampliar o impacto da marca. 🚀</p>
         </div>
-        <div class="chat-iframe-wrapper">
-            <iframe 
-                src="https://app.gptmaker.ai/widget/3E9776349A19327E768BFE986BECC174/iframe" 
-                width="100%" 
-                style="height: 600px; border: none;" 
-                allow="microphone;" 
-                frameborder="0">
-            </iframe>
+
+        <div class="chat-sidebar">
+            <div style="text-align: center;">
+                <p style="color: var(--accent-color); font-weight: bold; margin: 0 0 10px 0; font-size: 0.9rem;">
+                    Dúvidas sobre o meu fit com a vaga? Pergunte aqui:
+                </p>
+            </div>
+            <div class="chat-iframe-wrapper">
+                <iframe 
+                    src="https://app.gptmaker.ai/widget/3E9776349A19327E768BFE986BECC174/iframe" 
+                    width="100%" 
+                    style="height: 450px; border: none;" 
+                    allow="microphone;" 
+                    frameborder="0">
+                </iframe>
+            </div>
         </div>
     </section>
 
@@ -118,28 +145,11 @@
             </div>
             <div class="card">
                 <h3>Análise Sistêmica</h3>
-                <p style="color: var(--text-dim);">Meu diferencial não é apenas executar, é <strong>arquitetar plataformas</strong>. Integro tecnologia e comunidade para que o evento reverbere antes, durante e depois.</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Meu diferencial não é apenas executar, é <strong>arquitetar plataformas</strong>. Integro tecnologia e comunidade para que o evento reverbere antes, durante e depois.</p>
                 <div class="insight-box">
                     <strong>Insight Estratégico:</strong>
-                    <p id="insight-text">Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.</p>
+                    <p id="insight-text" style="font-size: 0.9rem;">Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 class="section-title">Eventos como Plataforma</h2>
-        <div class="card" style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <p>Eventos não são momentos pontuais. São plataformas que conectam cultura, comunidade e narrativa de marca. Minha abordagem foca em três pilares:</p>
-                <ul>
-                    <li><strong>Experiência:</strong> Momentos memoráveis presenciais.</li>
-                    <li><strong>Conteúdo:</strong> Narrativas que amplificam o alcance global.</li>
-                    <li><strong>Comunidade:</strong> Vínculos reais com territórios culturais.</li>
-                </ul>
-            </div>
-            <div style="flex: 1; min-width: 300px; text-align: center;">
-                 <i class="fa-solid fa-layer-group" style="font-size: 5rem; color: var(--accent-color);"></i>
             </div>
         </div>
     </section>
@@ -147,56 +157,36 @@
     <section id="projetos">
         <h2 class="section-title">Projetos e Plataformas</h2>
         <div class="projects-grid">
-            <div class="card project-card">
-                <h3>Automação Estratégica</h3>
-                <p>Integração de dados e análise de performance (Make/n8n/RD Station) para redução de 60% no tempo operacional.</p>
+            <div class="card">
+                <h3 style="color: var(--accent-color); font-size: 1.2rem;">Automação Estratégica</h3>
+                <p style="font-size: 0.9rem;">Redução de 60% no tempo operacional de resposta e integração de dados de performance via Make e n8n.</p>
             </div>
-            <div class="card project-card">
-                <h3>Estruturação de Produtos</h3>
-                <p>Desenvolvimento de soluções digitais escaláveis que transformam conhecimento estratégico em ferramentas de decisão.</p>
-            </div>
-            <div class="card project-card">
-                <h3>Ecossistema de Inovação</h3>
-                <p>Uso de IA para análise de sentimento e predição de tendências em eventos esportivos de larga escala.</p>
-            </div>
-            <div class="card project-card">
-                <h3>Operação RIW</h3>
-                <p>Gestão operacional da HealthTech Arena (2022-2023), focando em fluxo de público e experiência de conteúdo.</p>
+            <div class="card">
+                <h3 style="color: var(--accent-color); font-size: 1.2rem;">Operação RIW</h3>
+                <p style="font-size: 0.9rem;">Gestão da HealthTech Arena no Rio Innovation Week, focando em fluxo e conteúdo estratégico.</p>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>"Se eventos são plataformas de cultura, estratégia é o que transforma experiências em impacto."</p>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/josydomingues/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://wa.me/5521973840942" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.linkedin.com/in/josydomingues/" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://wa.me/5521973840942" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </footer>
 </div>
 
 <script>
     const ctx = document.getElementById('fitChart').getContext('2d');
-    
-    // Dados ajustados para escala 0-5
-    // Ordem: Plataforma, Multidisciplinar, Inovação, Gestão, Criatividade
     const dataSets = {
-        josy: {
-            label: 'Josy Domingues',
-            data: [4.8, 4.5, 4.0, 4.7, 4.0],
-            color: '#f30b32'
-        },
-        mercado: {
-            label: 'Média de Mercado',
-            data: [3.5, 3.2, 2.5, 4.0, 2.8],
-            color: '#8b949e'
-        }
+        josy: { data: [4.8, 4.5, 4.0, 4.7, 4.0] },
+        mercado: { data: [3.5, 3.2, 2.5, 4.0, 2.8] }
     };
 
     let fitChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Estratégia Plataforma', 'Multidisciplinar', 'Inovação (IA/Tech)', 'Gestão Projetos', 'Criatividade'],
+            labels: ['Plataforma', 'Multidisciplinar', 'Inovação', 'Gestão', 'Criatividade'],
             datasets: [{
                 label: 'Josy Domingues',
                 data: dataSets.josy.data,
@@ -207,7 +197,7 @@
                 borderWidth: 3
             },
             {
-                label: 'Requisito da Vaga',
+                label: 'Requisito Vaga',
                 data: [4.5, 4.2, 4.0, 4.5, 4.0],
                 fill: false,
                 borderColor: '#ffffff',
@@ -218,16 +208,14 @@
         options: {
             scales: {
                 r: {
-                    min: 0,
-                    max: 5,
-                    beginAtZero: true,
+                    min: 0, max: 5,
                     angleLines: { color: '#30363d' },
                     grid: { color: '#30363d' },
-                    pointLabels: { color: '#ffffff', font: { size: 11, weight: 'bold' } },
+                    pointLabels: { color: '#ffffff', font: { size: 10, weight: 'bold' } },
                     ticks: { display: false, stepSize: 1 }
                 }
             },
-            plugins: { legend: { labels: { color: '#ffffff' } } }
+            plugins: { legend: { labels: { color: '#ffffff', font: { size: 10 } } } }
         }
     });
 
@@ -238,13 +226,13 @@
             fitChart.data.datasets[0].data = dataSets.josy.data;
             fitChart.data.datasets[0].borderColor = '#f30b32';
             fitChart.data.datasets[0].backgroundColor = 'rgba(243, 11, 50, 0.2)';
-            insight.innerText = "Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.";
+            insight.innerText = "Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário.";
         } else {
             fitChart.data.datasets[0].label = 'Candidato Médio';
             fitChart.data.datasets[0].data = dataSets.mercado.data;
             fitChart.data.datasets[0].borderColor = '#8b949e';
             fitChart.data.datasets[0].backgroundColor = 'rgba(139, 148, 158, 0.2)';
-            insight.innerText = "O mercado tradicional ainda foca excessivamente no operacional, deixando lacunas em inovação tecnológica e visão de ecossistema cultural.";
+            insight.innerText = "O mercado tradicional apresenta lacunas em inovação tecnológica e visão de ecossistema cultural que eu preencho.";
         }
         fitChart.update();
     }
