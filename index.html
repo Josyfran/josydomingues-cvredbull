@@ -98,8 +98,8 @@
 <div class="container">
     <header class="hero">
         <h1>Josy Domingues <span>Lab</span></h1>
-        <h3>Event Strategy Lab</h3>
-        <p>Transformando estratégia, cultura e dados em plataformas de impacto.</p>
+        <h3>Event Strategy</h3>
+        <p>Transformando estratégia, cultura e dados em experiências de impacto.</p>
         
         <div class="nav-buttons">
             <a href="#ia-training" class="btn btn-primary">Interagir com a IA</a>
@@ -132,8 +132,7 @@
             </div>
         </div>
     </section>
-
-    <section id="dashboards">
+<section id="dashboards">
         <h2 class="section-title">Fit Estratégico com a Vaga</h2>
         <div class="dashboard-grid">
             <div class="card">
@@ -145,11 +144,28 @@
             </div>
             <div class="card">
                 <h3>Análise Sistêmica</h3>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Meu diferencial não é apenas executar, é <strong>arquitetar plataformas</strong>. Integro tecnologia e comunidade para que o evento reverbere antes, durante e depois.</p>
+                <p style="color: var(--text-dim);">Meu diferencial não é apenas executar, é <strong>arquitetar plataformas</strong>. Integro tecnologia e comunidade para que o evento reverbere antes, durante e depois.</p>
                 <div class="insight-box">
                     <strong>Insight Estratégico:</strong>
-                    <p id="insight-text" style="font-size: 0.9rem;">Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.</p>
+                    <p id="insight-text">Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Eventos como Plataforma</h2>
+        <div class="card" style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p>Eventos não são momentos pontuais. São plataformas que conectam cultura, comunidade e narrativa de marca. Minha abordagem foca em três pilares:</p>
+                <ul>
+                    <li><strong>Experiência:</strong> Momentos memoráveis presenciais.</li>
+                    <li><strong>Conteúdo:</strong> Narrativas que amplificam o alcance global.</li>
+                    <li><strong>Comunidade:</strong> Vínculos reais com territórios culturais.</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                 <i class="fa-solid fa-layer-group" style="font-size: 5rem; color: var(--accent-color);"></i>
             </div>
         </div>
     </section>
@@ -157,40 +173,56 @@
     <section id="projetos">
         <h2 class="section-title">Projetos e Plataformas</h2>
         <div class="projects-grid">
-            <div class="card">
-                <h3 style="color: var(--accent-color); font-size: 1.2rem;">Automação Estratégica</h3>
-                <p style="font-size: 0.9rem;">Redução de 60% no tempo operacional de resposta e integração de dados de performance via Make e n8n.</p>
+            <div class="card project-card">
+                <h3>Automação Estratégica</h3>
+                <p>Integração de dados e análise de performance (Make/n8n/RD Station) para redução de 60% no tempo operacional.</p>
             </div>
-            <div class="card">
-                <h3 style="color: var(--accent-color); font-size: 1.2rem;">Operação RIW</h3>
-                <p style="font-size: 0.9rem;">Gestão da HealthTech Arena no Rio Innovation Week, focando em fluxo e conteúdo estratégico.</p>
+            <div class="card project-card">
+                <h3>Estruturação de Produtos</h3>
+                <p>Desenvolvimento de soluções digitais escaláveis que transformam conhecimento estratégico em ferramentas de decisão.</p>
+            </div>
+            <div class="card project-card">
+                <h3>Ecossistema de Inovação</h3>
+                <p>Uso de IA para análise de sentimento e predição de tendências em eventos esportivos de larga escala.</p>
+            </div>
+            <div class="card project-card">
+                <h3>Operação RIW</h3>
+                <p>Gestão operacional da HealthTech Arena (2022-2023), focando em fluxo de público e experiência de conteúdo.</p>
             </div>
         </div>
     </section>
 
- <footer class="footer">
-        <div class="cta-text">
-            <p><strong>Ideias ganham força quando encontram as pessoas certas para executá-las.</strong></p>
-            <p>Se fizer sentido para você, vamos conversar!</p>
-        </div>
+    <footer class="footer">
+        <p>"Ideias ganham força quando encontram as pessoas certas para executá-las.Se fizer sentido para você, vamos conversar."</p>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/josydomingues/" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://wa.me/5521973840942" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.linkedin.com/in/josydomingues/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://wa.me/5521973840942" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </footer>
 </div>
 
 <script>
     const ctx = document.getElementById('fitChart').getContext('2d');
+    
+    // Dados ajustados para escala 0-5
+    // Ordem: Plataforma, Multidisciplinar, Inovação, Gestão, Criatividade
     const dataSets = {
-        josy: { data: [4.8, 4.5, 4.0, 4.7, 4.0] },
-        mercado: { data: [3.5, 3.2, 2.5, 4.0, 2.8] }
+        josy: {
+            label: 'Josy Domingues',
+            data: [4.8, 4.5, 4.0, 4.7, 4.0],
+            color: '#f30b32'
+        },
+        mercado: {
+            label: 'Média de Mercado',
+            data: [3.5, 3.2, 2.5, 4.0, 2.8],
+            color: '#8b949e'
+        }
     };
 
     let fitChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Plataforma', 'Multidisciplinar', 'Inovação', 'Gestão', 'Criatividade'],
+            labels: ['Estratégia Plataforma', 'Multidisciplinar', 'Inovação (IA/Tech)', 'Gestão Projetos', 'Criatividade'],
             datasets: [{
                 label: 'Josy Domingues',
                 data: dataSets.josy.data,
@@ -201,7 +233,7 @@
                 borderWidth: 3
             },
             {
-                label: 'Requisito Vaga',
+                label: 'Requisito da Vaga',
                 data: [4.5, 4.2, 4.0, 4.5, 4.0],
                 fill: false,
                 borderColor: '#ffffff',
@@ -212,14 +244,16 @@
         options: {
             scales: {
                 r: {
-                    min: 0, max: 5,
+                    min: 0,
+                    max: 5,
+                    beginAtZero: true,
                     angleLines: { color: '#30363d' },
                     grid: { color: '#30363d' },
-                    pointLabels: { color: '#ffffff', font: { size: 10, weight: 'bold' } },
+                    pointLabels: { color: '#ffffff', font: { size: 11, weight: 'bold' } },
                     ticks: { display: false, stepSize: 1 }
                 }
             },
-            plugins: { legend: { labels: { color: '#ffffff', font: { size: 10 } } } }
+            plugins: { legend: { labels: { color: '#ffffff' } } }
         }
     });
 
@@ -230,13 +264,13 @@
             fitChart.data.datasets[0].data = dataSets.josy.data;
             fitChart.data.datasets[0].borderColor = '#f30b32';
             fitChart.data.datasets[0].backgroundColor = 'rgba(243, 11, 50, 0.2)';
-            insight.innerText = "Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário.";
+            insight.innerText = "Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.";
         } else {
             fitChart.data.datasets[0].label = 'Candidato Médio';
             fitChart.data.datasets[0].data = dataSets.mercado.data;
             fitChart.data.datasets[0].borderColor = '#8b949e';
             fitChart.data.datasets[0].backgroundColor = 'rgba(139, 148, 158, 0.2)';
-            insight.innerText = "O mercado tradicional apresenta lacunas em inovação tecnológica e visão de ecossistema cultural que eu preencho.";
+            insight.innerText = "O mercado tradicional ainda foca excessivamente no operacional, deixando lacunas em inovação tecnológica e visão de ecossistema cultural.";
         }
         fitChart.update();
     }
