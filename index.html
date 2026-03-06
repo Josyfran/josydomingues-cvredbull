@@ -6,11 +6,14 @@
     <title>Josy Domingues | Event Strategy Lab</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script async src="https://app.gptmaker.ai/widget/3E9776349A19327E768BFE986BECC174/float.js"></script>
+
     <style>
         :root {
             --bg-color: #0b0d11;
             --card-bg: #161b22;
-            --accent-color: #f30b32; /* Red Bull Energy Red */
+            --accent-color: #f30b32;
             --text-main: #ffffff;
             --text-dim: #8b949e;
             --border: #30363d;
@@ -26,7 +29,7 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        /* 1. HERO SECTION */
+        /* HERO SECTION */
         .hero { text-align: center; padding: 80px 0; border-bottom: 1px solid var(--border); }
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; letter-spacing: -1px; }
         .hero span { color: var(--accent-color); }
@@ -36,14 +39,14 @@
         .btn { 
             padding: 12px 24px; border-radius: 30px; border: 1px solid var(--border);
             background: transparent; color: white; cursor: pointer; transition: 0.3s; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
         }
         .btn-primary { background: var(--accent-color); border: none; font-weight: bold; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(243, 11, 50, 0.2); }
 
-        /* 2. DASHBOARD SECTION */
+        /* DASHBOARD SECTION */
         .section-title { margin: 60px 0 30px; font-size: 1.8rem; border-left: 4px solid var(--accent-color); padding-left: 15px; }
-        
-        .dashboard-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .dashboard-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; margin-bottom: 40px; }
         .card { background: var(--card-bg); border-radius: 16px; padding: 25px; border: 1px solid var(--border); }
         
         .insight-box { 
@@ -51,13 +54,8 @@
             margin-top: 20px; border-left: 4px solid var(--accent-color);
         }
 
-        /* 3. PROJETOS */
         .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .project-card h3 { color: var(--accent-color); margin-top: 0; }
-        
-        /* 4. FOOTER */
         .footer { text-align: center; padding: 100px 0; }
-        .social-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
 
         @media (max-width: 768px) {
             .dashboard-grid, .projects-grid { grid-template-columns: 1fr; }
@@ -71,12 +69,11 @@
     <header class="hero">
         <h1>Event Strategy <span>Lab</span></h1>
         <h3>Surf & Skate Platform</h3>
-        <p>Uma experiência interativa para explorar como estratégia, cultura e dados podem transformar eventos em plataformas de impacto duradouro para marcas globais.</p>
+        <p>Uma experiência interativa para explorar como estratégia, cultura e dados podem transformar eventos em plataformas de impacto.</p>
         
         <div class="nav-buttons">
-            <a href="https://wa.me/5521973840942" class="btn btn-primary">Conversar com a IA</a>
+            <button onclick="openAIChat()" class="btn btn-primary"><i class="fa-solid fa-robot"></i> Conversar com a IA</button>
             <a href="#dashboards" class="btn">Explorar Dashboards</a>
-            <a href="#projetos" class="btn">Projetos</a>
         </div>
     </header>
 
@@ -91,29 +88,14 @@
                 </div>
             </div>
             <div class="card">
-                <h3>Análise Sistêmica</h3>
-                <p style="color: var(--text-dim);">Meu diferencial não é apenas executar, é <strong>arquitetar plataformas</strong>. Integro tecnologia e comunidade para que o evento reverbere antes, durante e depois.</p>
+                <h3>Insights de Especialista</h3>
                 <div class="insight-box">
-                    <strong>Insight Estratégico:</strong>
-                    <p id="insight-text">O maior diferencial da minha atuação está na capacidade de conectar estratégia, tecnologia e experiência. Enquanto o mercado foca no operacional, eu foco no ecossistema de marca.</p>
+                    <strong>Por que Josy?</strong>
+                    <p id="insight-text">Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 class="section-title">Eventos como Plataforma</h2>
-        <div class="card" style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <p>Eventos não são momentos pontuais. São plataformas que conectam cultura, comunidade e narrativa de marca. Minha abordagem foca em três pilares:</p>
-                <ul>
-                    <li><strong>Experiência:</strong> Momentos memoráveis presenciais.</li>
-                    <li><strong>Conteúdo:</strong> Narrativas que amplificam o alcance global.</li>
-                    <li><strong>Comunidade:</strong> Vínculos reais com territórios culturais.</li>
-                </ul>
-            </div>
-            <div style="flex: 1; min-width: 300px; text-align: center;">
-                 <i class="fa-solid fa-layer-group" style="font-size: 5rem; color: var(--accent-color);"></i>
+                <p style="margin-top:20px; color: var(--text-dim); font-size: 0.9rem;">
+                    * Escala de 0 a 5 baseada em competências técnicas e cases reais.
+                </p>
             </div>
         </div>
     </section>
@@ -121,80 +103,87 @@
     <section id="projetos">
         <h2 class="section-title">Projetos e Plataformas</h2>
         <div class="projects-grid">
-            <div class="card project-card">
-                <h3>Automação Estratégica</h3>
-                <p>Integração de dados e análise de performance (Make/n8n/RD Station) para redução de 60% no tempo operacional de resposta ao lead/fã.</p>
+            <div class="card">
+                <h3 style="color: var(--accent-color)">Automação & IA</h3>
+                <p>Implementação de fluxos inteligentes que conectam o digital ao presencial, garantindo dados em tempo real.</p>
             </div>
-            <div class="card project-card">
-                <h3>Estruturação de Produtos</h3>
-                <p>Desenvolvimento de soluções digitais escaláveis que transformam conhecimento estratégico em ferramentas de decisão para marketing.</p>
-            </div>
-            <div class="card project-card">
-                <h3>Ecossistema de Inovação</h3>
-                <p>Uso de IA para análise de sentimento e predição de tendências em eventos esportivos de larga escala.</p>
-            </div>
-            <div class="card project-card">
-                <h3>Operação Rio Innovation Week</h3>
-                <p>Gestão operacional da HealthTech Arena (2022-2023), focando em fluxo de público e experiência de conteúdo.</p>
+            <div class="card">
+                <h3 style="color: var(--accent-color)">Cultura de Esporte</h3>
+                <p>Estratégias voltadas para o nicho de Surf e Skate, respeitando a autenticidade das comunidades.</p>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>"Se eventos são plataformas de cultura, estratégia é o que transforma experiências em impacto."</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/josydomingues/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <p>Pronta para transformar o próximo evento em uma plataforma global.</p>
+        <div class="nav-buttons">
+            <a href="https://www.linkedin.com/in/josydomingues/" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <a href="https://wa.me/5521973840942" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </footer>
 </div>
 
 <script>
+    // Função para abrir o chat da IA
+    function openAIChat() {
+        // A maioria dos widgets de float.js abre ao detectar um clique no balão ou via API global se disponível.
+        // Como o script é assíncrono, simulamos o clique no botão flutuante que o script cria:
+        const chatWidget = document.querySelector('iframe[src*="gptmaker"]') || document.querySelector('#gptmaker-chat-icon');
+        if (chatWidget) {
+            chatWidget.click();
+        } else {
+            // Caso o script ainda não tenha carregado o ícone, alertamos ou tentamos carregar
+            alert("O assistente de IA está carregando. Clique no ícone no canto inferior direito!");
+        }
+    }
+
     const ctx = document.getElementById('fitChart').getContext('2d');
     
+    // Dados ajustados para escala 0-5
+    // Ordem: Plataforma, Multidisciplinar, Inovação, Gestão, Criatividade
     const dataSets = {
-        josy: {
-            label: 'Josy Domingues',
-            data: [95, 90, 85, 95, 98],
-            color: '#f30b32'
-        },
-        mercado: {
-            label: 'Média de Mercado',
-            data: [70, 65, 60, 80, 50],
-            color: '#8b949e'
-        }
+        josy: [4.8, 4.5, 4.0, 4.7, 4.0],
+        mercado: [3.0, 3.2, 2.5, 3.8, 2.8],
+        vaga: [4.5, 4.0, 4.0, 4.5, 4.0]
     };
 
     let fitChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Plataforma', 'Multidisciplinar', 'Inovação', 'Gestão', 'Conexão Cultural'],
+            labels: ['Estratégia Plataforma', 'Multidisciplinar', 'Inovação (IA/Tech)', 'Gestão Projetos', 'Criatividade'],
             datasets: [{
                 label: 'Josy Domingues',
-                data: dataSets.josy.data,
+                data: dataSets.josy,
                 fill: true,
                 backgroundColor: 'rgba(243, 11, 50, 0.2)',
                 borderColor: '#f30b32',
-                pointBackgroundColor: '#f30b32'
+                pointBackgroundColor: '#f30b32',
+                borderWidth: 3
             },
             {
                 label: 'Requisito da Vaga',
-                data: [90, 85, 90, 90, 90],
+                data: dataSets.vaga,
                 fill: false,
-                borderColor: '#ffffff',
-                borderDash: [5, 5]
+                borderColor: 'rgba(255, 255, 255, 0.5)',
+                borderDash: [5, 5],
+                pointRadius: 0
             }]
         },
         options: {
             scales: {
                 r: {
+                    min: 0,
+                    max: 5,
+                    beginAtZero: true,
                     angleLines: { color: '#30363d' },
                     grid: { color: '#30363d' },
-                    pointLabels: { color: '#ffffff', font: { size: 12 } },
-                    ticks: { display: false, max: 100 }
+                    pointLabels: { color: '#ffffff', font: { size: 11, weight: 'bold' } },
+                    ticks: { stepSize: 1, display: false }
                 }
             },
-            plugins: { legend: { labels: { color: '#ffffff' } } }
+            plugins: {
+                legend: { labels: { color: '#ffffff', font: { size: 12 } } }
+            }
         }
     });
 
@@ -202,16 +191,16 @@
         const insight = document.getElementById('insight-text');
         if(type === 'josy') {
             fitChart.data.datasets[0].label = 'Josy Domingues';
-            fitChart.data.datasets[0].data = dataSets.josy.data;
+            fitChart.data.datasets[0].data = dataSets.josy;
             fitChart.data.datasets[0].borderColor = '#f30b32';
             fitChart.data.datasets[0].backgroundColor = 'rgba(243, 11, 50, 0.2)';
-            insight.innerText = "O maior diferencial da minha atuação está na capacidade de conectar estratégia, tecnologia e experiência. Minha visão sistêmica permite transformar eventos em ativos de mídia.";
+            insight.innerText = "Minha pontuação em Inovação e Criatividade (4/5) reflete o uso prático de IA e Automação para elevar a experiência do usuário e a eficiência da marca.";
         } else {
-            fitChart.data.datasets[0].label = 'Candidato Médio';
-            fitChart.data.datasets[0].data = dataSets.mercado.data;
+            fitChart.data.datasets[0].label = 'Candidato Mercado';
+            fitChart.data.datasets[0].data = dataSets.mercado;
             fitChart.data.datasets[0].borderColor = '#8b949e';
             fitChart.data.datasets[0].backgroundColor = 'rgba(139, 148, 158, 0.2)';
-            insight.innerText = "Enquanto o mercado se concentra na execução logística, existe um 'gap' de 40% em inovação e arquitetura de dados que eu preencho com automações estratégicas.";
+            insight.innerText = "O mercado tradicional apresenta um 'gap' em tecnologia e visão de plataforma. Minha atuação preenche essa lacuna com soluções escaláveis.";
         }
         fitChart.update();
     }
