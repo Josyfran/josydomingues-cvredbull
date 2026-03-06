@@ -1,366 +1,126 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growthículo | Josy Domingues - Estrategista de Performance e Inovação</title>
+    <title>Josy Domingues | Event Manager Strategy</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Fundo cinza bem claro para um visual clean */
-            color: #333; /* Texto principal em cinza escuro */
-        }
-
-        /* Cores de Inovação e Humanização (Lilás, Azul, Verde Limão) */
-        .color-primary { color: #4338ca; } /* Indigo 700 - Azul/Lilás principal */
-        .color-accent { color: #84cc16; } /* Lime 500 - Verde Limão de destaque */
-        .bg-primary-light { background-color: #eef2ff; } /* Indigo 50 - Fundo claro do primário */
-        .bg-accent-light { background-color: #f7fee7; } /* Lime 50 - Fundo claro do accent */
-        .border-primary { border-color: #4338ca; }
-        .border-accent { border-color: #84cc16; }
-
-        .card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0; /* Borda suave */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        .section-title {
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid;
-        }
-
-        .insight-value {
-            font-size: 2rem; /* Menor que o Red Bull para ser mais clean */
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        .insight-label {
-            font-weight: 600;
-            color: #666;
-            margin-top: 0.25rem;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 1.5rem;
-            border-left: 2px solid #c7d2fe; /* Linha do tempo suave */
-            padding-bottom: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            background-color: #4338ca; /* Ponto na linha do tempo */
-            border-radius: 50%;
-            border: 3px solid #ffffff;
-        }
-
+        .redbull-blue { background-color: #000c2d; }
+        .redbull-red { background-color: #db0a40; }
+        .redbull-yellow { background-color: #ffcc00; }
+        .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="bg-gray-50 text-slate-900 font-sans">
 
-    <div class="container mx-auto max-w-7xl space-y-12">
+    <nav class="redbull-blue p-4 text-white flex justify-between items-center sticky top-0 z-50 shadow-lg">
+        <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full redbull-red"></div>
+            <span class="font-bold tracking-tighter text-xl text-white">JOSY<span class="text-yellow-400">.</span>DOMINGUES</span>
+        </div>
+        <div class="text-xs uppercase tracking-widest opacity-80">Event Strategy & Automation</div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- === 1. HEADER: IDENTIFICAÇÃO (A Identidade do Growth Hacking) === --><header class="p-6 md:p-8 rounded-xl card mb-10 border-b-4 border-accent">
-            <div class="flex flex-col md:flex-row justify-between items-start">
-                <div class="text-center md:text-left">
-                    <h1 class="text-5xl font-extrabold tracking-tight color-primary uppercase">GROWTHÍCULO</h1>
-                    <!-- TAG Explicativa Adicionada Aqui -->
-                    <p class="text-lg font-semibold mt-1 text-gray-600">Relatório de Competências e Alinhamento Estratégico em Formato Dashboard</p>
-                    <h2 class="text-3xl font-bold mt-1 text-gray-800">Josy Francisco Domingues</h2>
-                    <p class="text-xl font-medium color-accent mt-2">Estrategista de Marketing, Inovação e Performance</p>
+        <div class="md:col-span-1 space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-sm font-bold text-gray-400 uppercase mb-4 tracking-widest">Apresentação IA</h2>
+                <div id="chat-box" class="h-64 overflow-y-auto mb-4 p-4 bg-gray-50 rounded-lg text-sm space-y-3">
+                    <div class="bg-blue-100 p-2 rounded-lg text-blue-900">Olá! Sou a IA da Josy. Como posso ajudar você a entender o fit dela com a Red Bull?</div>
+                </div>
+                <div class="flex gap-2">
+                    <input id="user-input" type="text" placeholder="Pergunte algo..." class="w-full border p-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-900">
+                    <button onclick="sendMessage()" class="redbull-red text-white px-4 py-2 rounded-lg font-bold">></button>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-sm font-bold text-gray-400 uppercase mb-4 tracking-widest">Localismo</h2>
+                <p class="text-sm">📍 Baseada em <strong>Saquarema, RJ</strong></p>
+                <p class="text-xs text-gray-500 mt-2 italic">No epicentro do Surf brasileiro, conectando a cultura local à estratégia global.</p>
+            </div>
+        </div>
+
+        <div class="md:col-span-2 space-y-6">
+            
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold">Event Performance Dashboard</h2>
+                        <p class="text-sm text-gray-500">Simulação de Impacto: Arena HealthTech / Surf Strategy</p>
+                    </div>
+                    <div class="redbull-yellow text-[10px] font-bold px-2 py-1 rounded">LIVE DATA</div>
                 </div>
                 
-                <div class="mt-4 md:mt-0 text-center md:text-right text-base space-y-1 text-gray-600">
-                    <p>📍 Saquarema – RJ</p>
-                    <p>☎ (21) 97384-0942</p>
-                    <p>✉ <a href="mailto:josyyfrann@gmail.com" class="hover:text-primary">josyyfrann@gmail.com</a></p>
-                    <p class="font-semibold mt-2">🔗 <a href="https://linkedin.com/in/josydomingues" target="_blank" class="hover:text-accent">linkedin.com/in/josydomingues</a></p>
-                </div>
-            </div>
-        </header>
-
-        <!-- === 2. VISÃO ESTRATÉGICA E DADOS (O Dashboard Principal) === --><section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-            <!-- Painel de Insights Rápidos --><div class="card p-6 rounded-xl col-span-1">
-                <h3 class="text-2xl font-bold color-primary mb-4 border-b border-gray-200 pb-2">Insights Rápidos</h3>
-                <div class="space-y-4">
-                    <div class="p-3 bg-primary-light rounded-lg border-l-4 border-primary">
-                        <p class="insight-label">Experiência (Growth & Inovação)</p>
-                        <p class="insight-value color-primary">10<span class="text-xl font-bold">+</span></p>
-                        <p class="text-xs text-gray-500">Anos em Marketing, Inovação e Growth.</p>
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="p-4 bg-gray-50 rounded-xl">
+                        <div class="text-xs text-gray-400 uppercase">Eficiência</div>
+                        <div class="text-2xl font-black text-red-600">+500%</div>
                     </div>
-                    <div class="p-3 bg-accent-light rounded-lg border-l-4 border-accent">
-                        <p class="insight-label">Automação & Eficiência</p>
-                        <p class="insight-value color-accent">SaaS & IA</p>
-                        <p class="text-xs text-gray-500">Otimização de jornadas com Make, n8n, Chatbots IA.</p>
+                    <div class="p-4 bg-gray-50 rounded-xl">
+                        <div class="text-xs text-gray-400 uppercase">Processos</div>
+                        <div class="text-2xl font-black text-slate-800">-95% tempo</div>
                     </div>
-                    <div class="p-3 bg-primary-light rounded-lg border-l-4 border-primary">
-                        <p class="insight-label">Visão Estratégica</p>
-                        <p class="insight-value color-primary">PMO & Data</p>
-                        <p class="text-xs text-gray-500">Integração de gestão de projetos com análise de dados.</p>
+                    <div class="p-4 bg-gray-50 rounded-xl">
+                        <div class="text-xs text-gray-400 uppercase">Leads/Dia</div>
+                        <div class="text-2xl font-black text-slate-800">54</div>
                     </div>
                 </div>
+
+                <canvas id="kpiChart" height="100"></canvas>
             </div>
 
-            <!-- Gráfico de Radar: Habilidades X Vagas -->
-            <div class="card p-6 rounded-xl lg:col-span-2 flex flex-col justify-between">
-                <div>
-                    <!-- Emoji 🎯 Removido -->
-                    <h3 class="text-2xl font-bold color-primary mb-4 border-b border-gray-200 pb-2">Radar de Alinhamento (Match com a Red Bull)</h3>
-                    <p class="text-sm text-gray-600 mb-4">Mapeamento das competências de Josy em relação aos requisitos médios das vagas desejadas (Especialista de Canais e Gerente de Performance). Escala 1 a 5.</p>
-                </div>
-                <div style="max-height: 400px; max-width: 800px; margin: auto;">
-                    <canvas id="radarChart"></canvas>
-                </div>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="p-4 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all rounded-xl font-bold text-left">
+                    🌊 Estratégia Surf & Skate
+                </button>
+                <button class="p-4 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all rounded-xl font-bold text-left">
+                    🤖 Automação de Eventos
+                </button>
             </div>
-        </section>
-
-        <!-- === 3. PERFIL PROFISSIONAL E ÁREAS DE ATUAÇÃO === --><section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div class="card p-6 rounded-xl">
-                <h3 class="section-title color-primary border-primary">Perfil Profissional</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Profissional com mais de <b>10 anos</b> de experiência em marketing, inovação e growth, com trajetória em startups, healthtechs e projetos culturais de grande porte. Atuo na gestão de campanhas, canais digitais e eventos, unindo dados, storytelling e tecnologia para criar <b>experiências memoráveis</b> e estratégias de alto impacto.
-                </p>
-                <p class="text-gray-700 leading-relaxed mt-4">
-                    Meu perfil é <b>criativo, analítico e colaborativo</b>, com forte atuação em branding, automação e experiência do cliente (UX/CX). Minha marca é integrar times, dados e tecnologia para impulsionar <b>crescimento, performance e posicionamento</b> — transformando insights em experiências que conectam pessoas e propósito.
-                </p>
-            </div>
-            <div class="card p-6 rounded-xl">
-                <h3 class="section-title color-primary border-primary">Áreas de Atuação e Especialidade</h3>
-                <ul class="space-y-3 text-gray-700 ml-4">
-                    <!-- Emojis substituídos por • com a cor primária -->
-                    <li class="font-semibold"><span class="color-primary">•</span> <b>Planejamento e Performance de Marketing:</b> KPIs, dashboards, insights e otimização contínua.</li>
-                    <li class="font-semibold"><span class="color-primary">•</span> <b>Gestão de Projetos e Campanhas:</b> PMO, cronogramas, budget, stakeholders e metodologias ágeis.</li>
-                    <li class="font-semibold"><span class="color-primary">•</span> <b>Branding & Posicionamento:</b> Storytelling, construção de marca e campanhas multicanal.</li>
-                    <li class="font-semibold"><span class="color-primary">•</span> <b>Dados e Inteligência de Marketing:</b> Métricas, ROI, performance de canais e relatórios executivos.</li>
-                    <li class="font-semibold"><span class="color-primary">•</span> <b>Canais Digitais e Conteúdo:</b> SEO, curadoria, gestão de portais e ativações digitais.</li>
-                    <li class="font-semibold"><span class="color-primary">•</span> <b>Eventos & Ativações de Marca:</b> Planejamento, produção e execução de experiências de marca e inovação.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- === 4. TRAJETÓRIA PROFISSIONAL (A Linha do Tempo de Impacto) === --><section class="card p-6 rounded-xl">
-            <h3 class="section-title color-primary border-primary">Trajetória Profissional</h3>
-            
-            <div class="space-y-8 mt-6">
-                <!-- UXMed --><div class="timeline-item">
-                    <h4 class="text-xl font-bold text-gray-800">UXMed – Coordenadora de Projetos e Consultora (2022 – atual)</h4>
-                    <p class="text-sm color-accent font-medium mb-2">Startup de Inovação em Saúde</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4 text-sm">
-                        <li><b>Estratégia de Growth:</b> Estruturou funis e automações no RD Station para campanhas B2B e B2C.</li>
-                        <li><b>Liderança e UX/CX:</b> Liderou projetos de marketing e atendimento automatizado com foco em UX/CX.</li>
-                        <li><b>Análise de Dados:</b> Criou e analisou indicadores de performance, relatórios de ROI e KPIs estratégicos.</li>
-                    </ul>
-                </div>
-
-                <!-- AlquimIA --><div class="timeline-item">
-                    <h4 class="text-xl font-bold text-gray-800">AlquimIA Automações – Fundadora & CEO (2020 – 2022)</h4>
-                    <p class="text-sm color-accent font-medium mb-2">Empreendimento Próprio | SaaS & IA</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4 text-sm">
-                        <li><b>Inovação em Automação:</b> Desenvolveu chatbots e fluxos automatizados com IA e integração com CRMs (modelo SaaS).</li>
-                        <li><b>Branding Digital:</b> Liderou projetos de branding digital e posicionamento para negócios de saúde e inovação.</li>
-                    </ul>
-                </div>
-
-                <!-- Base Eventos / Rio Innovation Week --><div class="timeline-item">
-                    <h4 class="text-xl font-bold text-gray-800">Base Eventos / Rio Innovation Week – Produtora de Projetos (2021 – 2022)</h4>
-                    <p class="text-sm color-accent font-medium mb-2">Grandes Eventos & Ativações</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4 text-sm">
-                        <li><b>Coordenação de Eventos:</b> Coordenou a arena HealthTech, liderando curadoria, patrocinadores e fornecedores.</li>
-                        <li><b>Experiência de Marca:</b> Atuou em ativação de marca e experiência de público em um dos maiores eventos de inovação do país.</li>
-                    </ul>
-                </div>
-                
-                <!-- Bar do Zé --><div class="timeline-item last-item" style="border-left: none; padding-bottom: 0;">
-                    <h4 class="text-xl font-bold text-gray-800">Bar do Zé – Gestora de Marketing e Projetos (2019 – 2021)</h4>
-                    <p class="text-sm color-accent font-medium mb-2">Reposicionamento e Marketing Local</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4 text-sm">
-                        <li><b>Estratégia Local:</b> Reposicionou a marca, unindo estratégias digitais e experiências presenciais.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- === 5. TOOLKIT E DIFERENCIAIS (O Arsenal do Growth Hacker) === --><section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            
-            <div class="card p-6 rounded-xl">
-                <!-- Emoji 🛠️ Removido -->
-                <h3 class="section-title color-primary border-primary">Toolkit Estratégico</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700">
-                    <div>
-                        <p class="font-bold text-gray-900">Automação & CRM</p>
-                        <p>RD Station (CRM/Mkt), Make (n8n), Bitrix24, Trello, Monday, Chatbots IA.</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-gray-900">Data & Performance</p>
-                        <p>OKRs, KPIs, ROI, Looker Studio, Google Sheets (Avançado), Meta Ads, Power BI (básico).</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-gray-900">Projetos & Metodologia</p>
-                        <p>Scrum, Kanban, Design Thinking, PMO, Gestão de Budget.</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-gray-900">Canais & Conteúdo</p>
-                        <p>Wordpress, SEO, Curadoria, Copywriting, Inbound Marketing, landing pages.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card p-6 rounded-xl">
-                <!-- Emoji ⚡ Removido -->
-                <h3 class="section-title color-primary border-primary">Diferenciais (Fuel Red Bull)</h3>
-                <ul class="space-y-3 text-gray-700">
-                    <!-- Emojis substituídos por • com a cor accent -->
-                    <li><span class="color-accent">•</span> Experiência em ambientes criativos e de <b>inovação</b>, com foco em impacto real.</li>
-                    <li><span class="color-accent">•</span> Vivência em <b>branding</b>, canais digitais e <b>experiências proprietárias</b> de marca (Red Bull.com, Red Bull TV).</li>
-                    <li><span class="color-accent">•</span> Capacidade de conectar <b>dados, pessoas e propósito</b> para gerar valor tangível.</li>
-                    <li><span class="color-accent">•</span> Perfil <b>autêntico, colaborativo</b> e orientado a resultados.</li>
-                    <li><span class="color-accent">•</span> Atuação transversal em eventos, growth, conteúdo e performance.</li>
-                    <li><span class="color-accent">•</span> Alinhamento com a cultura de diversidade e inclusão: "dar aaasas a pessoas e ideias".</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- 6. FORMAÇÃO E CERTIFICAÇÕES (O Upgrade de Conhecimento) === --><section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="card p-6 rounded-xl">
-                <h3 class="section-title color-primary border-primary">Formação Acadêmica</h3>
-                <ul class="space-y-3 text-gray-700">
-                    <!-- Emojis substituídos por • com a cor accent -->
-                    <li class="font-semibold"><span class="color-accent">•</span> Tecnólogo em Marketing – Estácio de Sá</li>
-                    <li class="font-semibold"><span class="color-accent">•</span> Bacharelado em Sistemas de Informação – Estácio (em andamento)</li>
-                    <li class="font-semibold"><span class="color-accent">•</span> Técnico em Propaganda e Marketing – E.T.E. Adolpho Bloch (FAETEC)</li>
-                </ul>
-            </div>
-            <div class="card p-6 rounded-xl">
-                <h3 class="section-title color-primary border-primary">Certificações Estratégicas</h3>
-                <ul class="space-y-3 text-gray-700">
-                    <!-- Emojis substituídos por • com a cor accent -->
-                    <li class="font-semibold"><span class="color-accent">•</span> Growth Marketing – GLA</li>
-                    <li class="font-semibold"><span class="color-accent">•</span> Gerenciamento de Projetos e Metodologias Ágeis – Alumni Coppead</li>
-                    <li class="font-semibold"><span class="color-accent">•</span> RD Station Expert – CRM & Marketing</li>
-                    <li class="font-semibold"><span class="color-accent">•</span> Automação e Chatbots – Automatik Labs</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- === OBJETIVO PROFISSIONAL === --><footer class="text-center p-6 mt-12 bg-primary-light rounded-xl border-t-4 border-accent">
-            <p class="text-xl font-semibold color-primary">Objetivo Profissional:</p>
-            <p class="text-lg text-gray-800 mt-2">Atuar em posições de coordenação ou gestão de <b>marketing, performance e inovação</b> em empresas criativas, globais e orientadas a propósito,</p>
-            <p class="text-2xl font-bold color-accent mt-1">contribuindo para "Dar AAASAS a Pessoas e Ideias".</p>
-        </footer>
-
-    </div>
+        </div>
+    </main>
 
     <script>
-        // --- CONFIGURAÇÃO E DADOS PARA O GRÁFICO DE RADAR ---
-        const CHART_LABELS = [
-            'SEO & Canais Proprietários', 
-            'Performance & Análise de Dados', 
-            'Gestão de Projetos (PMO)', 
-            'Automação & Fluxos (Growth)', 
-            'Branding & Experiências de Marca'
-        ];
-        
-        // Dados de Josy (Escala 1-5, baseada no perfil fornecido)
-        const DATA_JOSY = [4.5, 5, 5, 5, 4];
-        
-        // Requisitos das vagas Red Bull (Média entre Canais e Performance/PMO)
-        // 1. Canais: 5 (muito alto)
-        // 2. Performance: 5 (muito alto)
-        // 3. PMO: 5 (muito alto)
-        // 4. Automação: 4 (importante para eficiência, mas não core)
-        // 5. Branding: 5 (muito alto na Red Bull)
-        const DATA_JOB_REQUIRED = [5, 5, 5, 4, 5]; 
-
-        let radarChartInstance = null;
-
-        function renderRadarChart() {
-            const ctx = document.getElementById('radarChart').getContext('2d');
-            if (radarChartInstance) radarChartInstance.destroy();
-            
-            radarChartInstance = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: CHART_LABELS,
-                    datasets: [
-                        {
-                            label: 'Josy (Habilidade)',
-                            data: DATA_JOSY,
-                            backgroundColor: 'rgba(132, 204, 22, 0.4)', /* Verde Limão semi-transparente */
-                            borderColor: '#84cc16', 
-                            borderWidth: 2,
-                            pointBackgroundColor: '#84cc16',
-                            pointBorderColor: '#fff',
-                        },
-                        {
-                            label: 'Requisito da Vaga (Red Bull)',
-                            data: DATA_JOB_REQUIRED,
-                            backgroundColor: 'rgba(67, 56, 202, 0.2)', /* Azul/Lilás semi-transparente */
-                            borderColor: '#4338ca',
-                            borderWidth: 2,
-                            pointBackgroundColor: '#4338ca',
-                            pointBorderColor: '#fff',
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: { color: 'rgba(0,0,0,0.1)' },
-                            grid: { color: 'rgba(0,0,0,0.1)' },
-                            pointLabels: { 
-                                font: { size: 13, weight: 'bold' }, 
-                                color: '#4b5563', /* Rótulos em cinza escuro */
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 5,
-                            ticks: { display: false }
-                        }
-                    },
-                    plugins: {
-                        legend: { 
-                            position: 'bottom',
-                            labels: { color: '#333' } /* Texto da legenda em cinza escuro */
-                        },
-                        title: { 
-                            display: false, /* O título já está no HTML */
-                        }
-                    }
-                }
-            });
-        }
-        
-        // --- Inicialização ---
-        document.addEventListener('DOMContentLoaded', () => {
-            renderRadarChart();
+        // Simulação do Gráfico de KPIs
+        const ctx = document.getElementById('kpiChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Planejamento', 'Pré-Evento', 'Dia 1', 'Dia 2', 'Pós-Evento'],
+                datasets: [{
+                    label: 'Engajamento da Comunidade',
+                    data: [10, 35, 85, 95, 70],
+                    borderColor: '#db0a40',
+                    backgroundColor: '#db0a4022',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: { plugins: { legend: { display: false } }, scales: { y: { display: false } } }
         });
-    </script>
-    
-    <!-- Script para o widget de bate-papo no canto inferior direito (Solicitado pelo usuário) -->
-    <script 
-        async 
-        src="https://app.gptmaker.ai/widget/3E9776349A19327E768BFE986BECC174/float.js">
+
+        // Chatbot Estático Simples
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            if (input.value.trim() === "") return;
+
+            chatBox.innerHTML += `<div class='text-right'><b>Você:</b> ${input.value}</div>`;
+            
+            // Lógica de resposta simples (Simulando a IA)
+            setTimeout(() => {
+                let resp = "A Josy tem vasta experiência em coordenar eventos complexos como o Rio Innovation Week. Quer saber mais sobre a automação que ela criou?";
+                if(input.value.toLowerCase().includes("surf")) resp = "Ela vive em Saquarema e entende que o Surf é mais que esporte, é cultura e mídia.";
+                chatBox.innerHTML += `<div class='bg-blue-100 p-2 rounded-lg text-blue-900'><b>Josy AI:</b> ${resp}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
+            
+            input.value = "";
+        }
     </script>
 </body>
 </html>
